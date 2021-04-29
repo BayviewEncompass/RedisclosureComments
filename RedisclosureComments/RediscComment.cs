@@ -91,32 +91,32 @@ namespace RedisclosureComments
             {
                 if (e.FieldID == "CX.REDISC.SENT.DATETIME")
                 {
-                    if (user.GetUserGroups().Contains(pilotUser))
-                    {
+                    //if (user.GetUserGroups().Contains(pilotUser))
+                    //{
                         //MessageBox.Show("Pilot User Found");
                         var sentLE = loan.Fields["CX.REDISC.LE"].Value;
                         var sentCD = loan.Fields["CX.REDISC.CD"].Value;
                         var sentApproval = loan.Fields["CX.REDISC.APPROVAL"].Value;
-                        loan.Fields["CX.PILOT.USER"].Value = "X";
+                        //loan.Fields["CX.PILOT.USER"].Value = "X";
 
                         if (sentLE.ToString() == "X")
                         {
                             LE_Sent();
-                            loan.Fields["CX.PILOT.USER"].Value = "";
+                            //loan.Fields["CX.PILOT.USER"].Value = "";
                         }
 
                         if (sentCD.ToString() == "X")
                         {
                             CD_sent();
-                            loan.Fields["CX.PILOT.USER"].Value = "";
+                            //loan.Fields["CX.PILOT.USER"].Value = "";
                         }
                         if (sentApproval.ToString() == "X")
                         {
                             //MessageBox.Show("I am in the plugin");
                             Approval_Package();
-                            loan.Fields["CX.PILOT.USER"].Value = "";
+                            //loan.Fields["CX.PILOT.USER"].Value = "";
                         }
-                    }
+                    //}
                 }
             }
             catch (Exception)
@@ -136,53 +136,53 @@ namespace RedisclosureComments
 
                 //Begin code added for STRY0575648 - 2 / 10 / 21 LB
 
-                //if (loan.Fields["CX.BROCOMP.COC.REQ.1"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
-                //{
-                //    loan.Fields["CX.BROCOMP.COC.REQ.1"].Value = loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value;
-                //}
-                //else if (loan.Fields["CX.BROCOMP.COC.REQ.1"].Value != null & loan.Fields["CX.BROCOMP.COC.REQ.2"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
-                //{
-                //    loan.Fields["CX.BROCOMP.COC.REQ.2"].Value = loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value;
-                //}
-                //else if (loan.Fields["CX.BROCOMP.COC.REQ.1"].Value != null & loan.Fields["CX.BROCOMP.COC.REQ.2"].Value != null & loan.Fields["CX.BROCOMP.COC.REQ.3"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
-                //{
-                //    loan.Fields["CX.BROCOMP.COC.REQ.3"].Value = loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value;
-                //}
+                if (loan.Fields["CX.BROCOMP.COC.REQ.1"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
+                {
+                    loan.Fields["CX.BROCOMP.COC.REQ.1"].Value = loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value;
+                }
+                else if (loan.Fields["CX.BROCOMP.COC.REQ.1"].Value != null & loan.Fields["CX.BROCOMP.COC.REQ.2"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
+                {
+                    loan.Fields["CX.BROCOMP.COC.REQ.2"].Value = loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value;
+                }
+                else if (loan.Fields["CX.BROCOMP.COC.REQ.1"].Value != null & loan.Fields["CX.BROCOMP.COC.REQ.2"].Value != null & loan.Fields["CX.BROCOMP.COC.REQ.3"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
+                {
+                    loan.Fields["CX.BROCOMP.COC.REQ.3"].Value = loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value;
+                }
 
-                //if (loan.Fields["CX.BROCOMP.REQ.REASONS1"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
-                //{
-                //    loan.Fields["CX.BROCOMP.REQ.REASONS1"].Value = loan.Fields["CX.BROCOMP.COC.REASONS"].Value;
-                //}
-                //else if (loan.Fields["CX.BROCOMP.REQ.REASONS1"].Value != null & loan.Fields["CX.BROCOMP.REQ.REASONS2"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
-                //{
-                //    loan.Fields["CX.BROCOMP.REQ.REASONS2"].Value = loan.Fields["CX.BROCOMP.COC.REASONS"].Value;
-                //}
-                //else if (loan.Fields["CX.BROCOMP.REQ.REASONS1"].Value != null & loan.Fields["CX.BROCOMP.REQ.REASONS2"].Value != null & loan.Fields["CX.BROCOMP.REQ.REASONS3"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
-                //{
-                //    loan.Fields["CX.BROCOMP.REQ.REASONS3"].Value = loan.Fields["CX.BROCOMP.COC.REASONS"].Value;
-                //}
+                if (loan.Fields["CX.BROCOMP.REQ.REASONS1"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
+                {
+                    loan.Fields["CX.BROCOMP.REQ.REASONS1"].Value = loan.Fields["CX.BROCOMP.COC.REASONS"].Value;
+                }
+                else if (loan.Fields["CX.BROCOMP.REQ.REASONS1"].Value != null & loan.Fields["CX.BROCOMP.REQ.REASONS2"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
+                {
+                    loan.Fields["CX.BROCOMP.REQ.REASONS2"].Value = loan.Fields["CX.BROCOMP.COC.REASONS"].Value;
+                }
+                else if (loan.Fields["CX.BROCOMP.REQ.REASONS1"].Value != null & loan.Fields["CX.BROCOMP.REQ.REASONS2"].Value != null & loan.Fields["CX.BROCOMP.REQ.REASONS3"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
+                {
+                    loan.Fields["CX.BROCOMP.REQ.REASONS3"].Value = loan.Fields["CX.BROCOMP.COC.REASONS"].Value;
+                }
 
-                //loan.Fields["CX.BROCOMP.COC.REASON.1"].Value = "";
-                //loan.Fields["CX.BROCOMP.COC.REASON.2"].Value = "";
-                //loan.Fields["CX.BROCOMP.COC.REASON.3"].Value = "";
-                //loan.Fields["CX.BROCOMP.COC.REASON.4"].Value = "";
-                //loan.Fields["CX.BROCOMP.COC.REASON.5"].Value = "";
-                //loan.Fields["CX.BROCOMP.COC.REASON.6"].Value = "";
-                //loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value = "";
-                //loan.Fields["CX.BROCOMP.COC.REASONS"].Value = "";
+                loan.Fields["CX.BROCOMP.COC.REASON.1"].Value = "";
+                loan.Fields["CX.BROCOMP.COC.REASON.2"].Value = "";
+                loan.Fields["CX.BROCOMP.COC.REASON.3"].Value = "";
+                loan.Fields["CX.BROCOMP.COC.REASON.4"].Value = "";
+                loan.Fields["CX.BROCOMP.COC.REASON.5"].Value = "";
+                loan.Fields["CX.BROCOMP.COC.REASON.6"].Value = "";
+                loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value = "";
+                loan.Fields["CX.BROCOMP.COC.REASONS"].Value = "";
 
-                //if (loan.Fields["CX.BROCOMP.REDUCED.REQ1"].Value.ToString() == "")
-                //{
-                //    Macro.CopyField("CX.BROCOMP.REDUCED.AMOUNT", "CX.BROCOMP.REDUCED.REQ1");
-                //}
-                //else if (loan.Fields["CX.BROCOMP.REDUCED.REQ1"].Value.ToString() != "" & loan.Fields["CX.BROCOMP.REDUCED.REQ2"].Value.ToString() == "")
-                //{
-                //    Macro.CopyField("CX.BROCOMP.REDUCED.AMOUNT", "CX.BROCOMP.REDUCED.REQ2");
-                //}
-                //else if (loan.Fields["CX.BROCOMP.REDUCED.REQ1"].Value.ToString() != "" & loan.Fields["CX.BROCOMP.REDUCED.REQ2"].Value.ToString() != "" & loan.Fields["CX.BROCOMP.REDUCED.REQ3"].Value.ToString() == "")
-                //{
-                //    Macro.CopyField("CX.BROCOMP.REDUCED.AMOUNT", "CX.BROCOMP.REDUCED.REQ3");
-                //}
+                if (loan.Fields["CX.BROCOMP.REDUCED.REQ1"].Value.ToString() == "")
+                {
+                    Macro.CopyField("CX.BROCOMP.REDUCED.AMOUNT", "CX.BROCOMP.REDUCED.REQ1");
+                }
+                else if (loan.Fields["CX.BROCOMP.REDUCED.REQ1"].Value.ToString() != "" & loan.Fields["CX.BROCOMP.REDUCED.REQ2"].Value.ToString() == "")
+                {
+                    Macro.CopyField("CX.BROCOMP.REDUCED.AMOUNT", "CX.BROCOMP.REDUCED.REQ2");
+                }
+                else if (loan.Fields["CX.BROCOMP.REDUCED.REQ1"].Value.ToString() != "" & loan.Fields["CX.BROCOMP.REDUCED.REQ2"].Value.ToString() != "" & loan.Fields["CX.BROCOMP.REDUCED.REQ3"].Value.ToString() == "")
+                {
+                    Macro.CopyField("CX.BROCOMP.REDUCED.AMOUNT", "CX.BROCOMP.REDUCED.REQ3");
+                }
                 //End code added for STRY0575648
 
 
@@ -393,6 +393,7 @@ namespace RedisclosureComments
                 loan.Fields["CX.REDISC.ALERT.ACTIVATED.BY"].Value = "";
                 loan.Fields["CX.REDISC.FIRST.ALERT.DATE"].Value = "";
                 loan.Fields["CX.REDISC.DUE.BY"].Value = "";
+                loan.Fields["CX.DATA.CHANGE.PENDING.1"].Value = "";
             }
             catch (Exception)
             {
@@ -413,53 +414,53 @@ namespace RedisclosureComments
 
                 //Begin code added for STRY0575648 - 2 / 10 / 21 LB
 
-                //if (loan.Fields["CX.BROCOMP.COC.REQ.1"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
-                //{
-                //    loan.Fields["CX.BROCOMP.COC.REQ.1"].Value = loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value;
-                //}
-                //else if (loan.Fields["CX.BROCOMP.COC.REQ.1"].Value != null & loan.Fields["CX.BROCOMP.COC.REQ.2"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
-                //{
-                //    loan.Fields["CX.BROCOMP.COC.REQ.2"].Value = loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value;
-                //}
-                //else if (loan.Fields["CX.BROCOMP.COC.REQ.1"].Value != null & loan.Fields["CX.BROCOMP.COC.REQ.2"].Value != null & loan.Fields["CX.BROCOMP.COC.REQ.3"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
-                //{
-                //    loan.Fields["CX.BROCOMP.COC.REQ.3"].Value = loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value;
-                //}
+                if (loan.Fields["CX.BROCOMP.COC.REQ.1"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
+                {
+                    loan.Fields["CX.BROCOMP.COC.REQ.1"].Value = loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value;
+                }
+                else if (loan.Fields["CX.BROCOMP.COC.REQ.1"].Value != null & loan.Fields["CX.BROCOMP.COC.REQ.2"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
+                {
+                    loan.Fields["CX.BROCOMP.COC.REQ.2"].Value = loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value;
+                }
+                else if (loan.Fields["CX.BROCOMP.COC.REQ.1"].Value != null & loan.Fields["CX.BROCOMP.COC.REQ.2"].Value != null & loan.Fields["CX.BROCOMP.COC.REQ.3"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
+                {
+                    loan.Fields["CX.BROCOMP.COC.REQ.3"].Value = loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value;
+                }
 
-                //if (loan.Fields["CX.BROCOMP.REQ.REASONS1"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
-                //{
-                //    loan.Fields["CX.BROCOMP.REQ.REASONS1"].Value = loan.Fields["CX.BROCOMP.COC.REASONS"].Value;
-                //}
-                //else if (loan.Fields["CX.BROCOMP.REQ.REASONS1"].Value != null & loan.Fields["CX.BROCOMP.REQ.REASONS2"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
-                //{
-                //    loan.Fields["CX.BROCOMP.REQ.REASONS2"].Value = loan.Fields["CX.BROCOMP.COC.REASONS"].Value;
-                //}
-                //else if (loan.Fields["CX.BROCOMP.REQ.REASONS1"].Value != null & loan.Fields["CX.BROCOMP.REQ.REASONS2"].Value != null & loan.Fields["CX.BROCOMP.REQ.REASONS3"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
-                //{
-                //    loan.Fields["CX.BROCOMP.REQ.REASONS3"].Value = loan.Fields["CX.BROCOMP.COC.REASONS"].Value;
-                //}
+                if (loan.Fields["CX.BROCOMP.REQ.REASONS1"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
+                {
+                    loan.Fields["CX.BROCOMP.REQ.REASONS1"].Value = loan.Fields["CX.BROCOMP.COC.REASONS"].Value;
+                }
+                else if (loan.Fields["CX.BROCOMP.REQ.REASONS1"].Value != null & loan.Fields["CX.BROCOMP.REQ.REASONS2"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
+                {
+                    loan.Fields["CX.BROCOMP.REQ.REASONS2"].Value = loan.Fields["CX.BROCOMP.COC.REASONS"].Value;
+                }
+                else if (loan.Fields["CX.BROCOMP.REQ.REASONS1"].Value != null & loan.Fields["CX.BROCOMP.REQ.REASONS2"].Value != null & loan.Fields["CX.BROCOMP.REQ.REASONS3"].Value == null & loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value != null)
+                {
+                    loan.Fields["CX.BROCOMP.REQ.REASONS3"].Value = loan.Fields["CX.BROCOMP.COC.REASONS"].Value;
+                }
 
-                //loan.Fields["CX.BROCOMP.COC.REASON.1"].Value = "";
-                //loan.Fields["CX.BROCOMP.COC.REASON.2"].Value = "";
-                //loan.Fields["CX.BROCOMP.COC.REASON.3"].Value = "";
-                //loan.Fields["CX.BROCOMP.COC.REASON.4"].Value = "";
-                //loan.Fields["CX.BROCOMP.COC.REASON.5"].Value = "";
-                //loan.Fields["CX.BROCOMP.COC.REASON.6"].Value = "";
-                //loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value = "";
-                //loan.Fields["CX.BROCOMP.COC.REASONS"].Value = "";
+                loan.Fields["CX.BROCOMP.COC.REASON.1"].Value = "";
+                loan.Fields["CX.BROCOMP.COC.REASON.2"].Value = "";
+                loan.Fields["CX.BROCOMP.COC.REASON.3"].Value = "";
+                loan.Fields["CX.BROCOMP.COC.REASON.4"].Value = "";
+                loan.Fields["CX.BROCOMP.COC.REASON.5"].Value = "";
+                loan.Fields["CX.BROCOMP.COC.REASON.6"].Value = "";
+                loan.Fields["CX.BROCOMP.COC.EXPLAIN"].Value = "";
+                loan.Fields["CX.BROCOMP.COC.REASONS"].Value = "";
 
-                //if (loan.Fields["CX.BROCOMP.REDUCED.REQ1"].Value.ToString() == "")
-                //{
-                //    Macro.CopyField("CX.BROCOMP.REDUCED.AMOUNT", "CX.BROCOMP.REDUCED.REQ1");
-                //}
-                //else if (loan.Fields["CX.BROCOMP.REDUCED.REQ1"].Value.ToString() != "" & loan.Fields["CX.BROCOMP.REDUCED.REQ2"].Value.ToString() == "")
-                //{
-                //    Macro.CopyField("CX.BROCOMP.REDUCED.AMOUNT", "CX.BROCOMP.REDUCED.REQ2");
-                //}
-                //else if (loan.Fields["CX.BROCOMP.REDUCED.REQ1"].Value.ToString() != "" & loan.Fields["CX.BROCOMP.REDUCED.REQ2"].Value.ToString() != "" & loan.Fields["CX.BROCOMP.REDUCED.REQ3"].Value.ToString() == "")
-                //{
-                //    Macro.CopyField("CX.BROCOMP.REDUCED.AMOUNT", "CX.BROCOMP.REDUCED.REQ3");
-                //}
+                if (loan.Fields["CX.BROCOMP.REDUCED.REQ1"].Value.ToString() == "")
+                {
+                    Macro.CopyField("CX.BROCOMP.REDUCED.AMOUNT", "CX.BROCOMP.REDUCED.REQ1");
+                }
+                else if (loan.Fields["CX.BROCOMP.REDUCED.REQ1"].Value.ToString() != "" & loan.Fields["CX.BROCOMP.REDUCED.REQ2"].Value.ToString() == "")
+                {
+                    Macro.CopyField("CX.BROCOMP.REDUCED.AMOUNT", "CX.BROCOMP.REDUCED.REQ2");
+                }
+                else if (loan.Fields["CX.BROCOMP.REDUCED.REQ1"].Value.ToString() != "" & loan.Fields["CX.BROCOMP.REDUCED.REQ2"].Value.ToString() != "" & loan.Fields["CX.BROCOMP.REDUCED.REQ3"].Value.ToString() == "")
+                {
+                    Macro.CopyField("CX.BROCOMP.REDUCED.AMOUNT", "CX.BROCOMP.REDUCED.REQ3");
+                }
                 //End code added for STRY0575648
 
                 for (int i = 0; i < commentBoxList.Count; i++)
@@ -641,6 +642,7 @@ namespace RedisclosureComments
                 Macro.SetFieldNoRules("CX.REDISC.FIRST.ALERT.DATE", "");
                 Macro.SetFieldNoRules("CX.REDISC.DUE.BY", "");
                 loan.Fields["CX.REDISC.CD"].Value = "";
+                loan.Fields["CX.DATA.CHANGE.PENDING.1"].Value = "";
             }
             catch (Exception)
             {
